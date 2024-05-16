@@ -1,5 +1,5 @@
 import './App.css';
-import Loading from './components/effects/loading/Loading';
+import PulseLoading from './components/effects/pulse_loading/PulseLoading';
 import Grid from './components/grid/Grid';
 
 function App() {
@@ -7,15 +7,7 @@ function App() {
     <div className="App">
       <h1>CSS Effects</h1>
       <Grid>
-        <Loading/>
-        <Loading/>
-        <Loading/>
-        <Loading/>
-        <Loading/>
-        <Loading/>
-        <Loading/>
-        <Loading/>
-        <Loading/>
+        <PulseLoading/>
       </Grid>
     </div>
   );

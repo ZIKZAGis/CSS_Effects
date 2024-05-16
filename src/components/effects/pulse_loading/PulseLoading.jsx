@@ -1,10 +1,10 @@
 import Effect from "../../effect/Effect"
-import styles from './Loading.module.scss'
+import styles from "./PulseLoading.module.scss"
 
-const Loading = () => {
+const PulseLoading = () => {
     return (
         <Effect 
-            title="Loading" 
+            title="Pulse loading" 
             bg_color="#242834" 
             tx_color="white" 
             link="#"
@@ -20,4 +20,4 @@ const Loading = () => {
     )
 }
 
-export default Loading
+export default PulseLoading
