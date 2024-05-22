@@ -1,0 +1,121 @@
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+        background: transparent;
+        border: 10px solid #333;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+}
+
+.btn_one .line {
+    transition: y 300ms ease-in 300ms, rotate 300ms ease-in, opacity 0ms 300ms;
+    transform-origin: center;
+}
+
+.btn_one[aria-expanded='true'] {
+    .line {
+        transition: y 300ms ease-in, rotate 300ms ease-in 300ms, opacity 0ms 300ms;
+    }
+
+    :is(.top, .bottom) {
+        y: 45;
+    }
+
+    .top {
+        rotate: 45deg;
+    }
+
+    .middle {
+        opacity: 0;
+    }
+
+    .bottom {
+        rotate: -45deg;
+    }
+}
+
+.btn_two[data-state='closed'] :is(.top, .bottom) {
+    animation: to-open-icon 1s forwards;
+}
+
+.btn_two[data-state='opened'] :is(.top, .bottom) {
+    animation: to-close-icon 1s forwards;
+}
+
+.btn_two .hamburger {
+    transition: rotate 800ms 100ms;
+}
+
+.btn_two[data-state='opened'] .hamburger {
+    rotate: 1turn;
+}
+
+.btn_two .line.top {
+    --rotation: -45deg;
+    transform-origin: 65px 45px;
+}
+
+.btn_two .line.bottom {
+    --rotation: 45deg;
+    transform-origin: 60px 55px;
+}
+
+@keyframes to-close-icon {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    40% {
+      stroke-dashoffset: 79.9;
+    }
+    60% {
+      stroke-dashoffset: 79.9;
+      rotate: calc(var(--rotation));
+    }
+    100% {
+      stroke-dashoffset: 0;
+      rotate: var(--rotation);
+    }
+  }
+  @keyframes to-open-icon {
+    0% {
+      stroke-dashoffset: 0;
+      rotate: var(--rotation);
+    }
+    40% {
+      stroke-dashoffset: 79.9;
+      rotate: var(--rotation);
+    }
+    60% {
+      stroke-dashoffset: 79.9;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .btn_three {
+    overflow: hidden;
+
+    .hamburger {
+        transition:  translate 1s, rotate 1s;
+    }
+
+    .line {
+        transition: 1s;
+        stroke-dashoffset: 60 31 60 300;
+    }
+  }
+
+  .btn_three[aria-expanded='true'] {
+    .hamburger {
+        translate: 10px -10px;
+        rotate: 0.125turn;
+      }
+    .line {
+        stroke-dasharray: 60 105 60 300;
+        stroke-dashoffset: -90;
+    }
+  }
