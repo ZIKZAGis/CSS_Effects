@@ -1,23 +1,20 @@
 import styles from './HamburgerButton.module.scss'
 import Effect from '../../effect/Effect'
+import React from 'react'
 
 const HamburgerButton = () => {
-    // const wrapper = document.querySelector('#hamburger_wrapper')
-    // const buttons = wrapper?.querySelectorAll('button')
 
-    // buttons?.forEach((button) => {
-    //     button.addEventListener("click", () => {
-    //         const currentState = button.getAttribute("data-state")
+    const buttonHandler = (evt: React.MouseEvent) => {
+        const currentState = (evt.target as HTMLButtonElement).getAttribute("data-state")
 
-    //         if (!currentState || currentState === "closed") {
-    //             button.setAttribute("data-state", "opened")
-    //             button.setAttribute("aria-expanded", "true")
-    //         } else {
-    //             button.setAttribute("data-state", "closed")
-    //             button.setAttribute("aria-expanded", "false")
-    //         }
-    //     })
-    // })
+        if (!currentState || currentState === "closed") {
+            (evt.target as HTMLButtonElement).setAttribute("data-state", "opened");
+            (evt.target as HTMLButtonElement).setAttribute("aria-expanded", "true");
+        } else {
+            (evt.target as HTMLButtonElement).setAttribute("data-state", "closed");
+            (evt.target as HTMLButtonElement).setAttribute("aria-expanded", "false");
+        }
+    }
 
     return (
         <Effect 
@@ -27,8 +24,8 @@ const HamburgerButton = () => {
             link="#"
             link_color='#000'
         >
-            <div className={styles.wrapper} id='hamburger_wrapper'>
-                <button className={styles.btn_one} aria-controls='primary-navigation' aria-expanded='false'>
+            <div className={styles.wrapper}>
+                <button className={`${styles.btn_one} ${styles.btn}`} aria-controls='primary-navigation' aria-expanded='false' onClick={(e) => buttonHandler(e)}>
                     <svg fill='#333' className={styles.hamburger} viewBox='0 0 100 100' width={250}>
                         <rect className={`${styles.line} ${styles.top}`} width={80} height={10} x={10} y={25} rx={5}/>
                         <rect className={`${styles.line} ${styles.middle}`} width={80} height={10} x={10} y={45} rx={5}/>
@@ -36,7 +33,7 @@ const HamburgerButton = () => {
                     </svg>
                 </button>
 
-                <button className={styles.btn_two} aria-expanded="false">
+                <button className={`${styles.btn_two} ${styles.btn}`} aria-expanded="false" onClick={(e) => buttonHandler(e)}>
                     <svg stroke='#333' className={styles.hamburger} viewBox='0 0 100 100' width={250}>
                         <line 
                             className={`${styles.line} ${styles.top}`} 
@@ -59,7 +56,7 @@ const HamburgerButton = () => {
                     </svg>
                 </button>
 
-                <button className={styles.btn_three}aria-controls="primary-navigation" aria-expanded="false">
+                <button className={`${styles.btn_three} ${styles.btn}`}aria-controls="primary-navigation" aria-expanded="false" onClick={(e) => buttonHandler(e)}>
                     <svg stroke='#333' fill='none' className={styles.hamburger} viewBox='-10 -10 120 120' width={250}>
                         <path 
                             className={styles.line} 

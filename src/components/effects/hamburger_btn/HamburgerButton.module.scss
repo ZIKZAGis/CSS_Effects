@@ -10,6 +10,21 @@
     }
 }
 
+.btn {
+  position: relative;
+  z-index: 1;
+  transition: background ease-in 300ms;
+
+  svg {
+    position: relative;
+    z-index: -1;
+  }
+
+  &[aria-expanded="true"] {
+    background-color: #b1b0ac;
+  }
+}
+
 .btn_one .line {
     transition: y 300ms ease-in 300ms, rotate 300ms ease-in, opacity 0ms 300ms;
     transform-origin: center;
@@ -64,58 +79,57 @@
 }
 
 @keyframes to-close-icon {
-    0% {
-      stroke-dashoffset: 0;
-    }
-    40% {
-      stroke-dashoffset: 79.9;
-    }
-    60% {
-      stroke-dashoffset: 79.9;
-      rotate: calc(var(--rotation));
-    }
-    100% {
-      stroke-dashoffset: 0;
-      rotate: var(--rotation);
-    }
+  0% {
+    stroke-dashoffset: 0;
   }
-  @keyframes to-open-icon {
-    0% {
-      stroke-dashoffset: 0;
-      rotate: var(--rotation);
-    }
-    40% {
-      stroke-dashoffset: 79.9;
-      rotate: var(--rotation);
-    }
-    60% {
-      stroke-dashoffset: 79.9;
-    }
-    100% {
-      stroke-dashoffset: 0;
-    }
+  40% {
+    stroke-dashoffset: 79.9;
   }
-
-  .btn_three {
-    overflow: hidden;
-
-    .hamburger {
-        transition:  translate 1s, rotate 1s;
-    }
-
-    .line {
-        transition: 1s;
-        stroke-dashoffset: 60 31 60 300;
-    }
+  60% {
+    stroke-dashoffset: 79.9;
+    rotate: calc(var(--rotation));
   }
-
-  .btn_three[aria-expanded='true'] {
-    .hamburger {
-        translate: 10px -10px;
-        rotate: 0.125turn;
-      }
-    .line {
-        stroke-dasharray: 60 105 60 300;
-        stroke-dashoffset: -90;
-    }
+  100% {
+    stroke-dashoffset: 0;
+    rotate: var(--rotation);
   }
+}
+@keyframes to-open-icon {
+  0% {
+    stroke-dashoffset: 0;
+    rotate: var(--rotation);
+  }
+  40% {
+    stroke-dashoffset: 79.9;
+    rotate: var(--rotation);
+  }
+  60% {
+    stroke-dashoffset: 79.9;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.btn_three {
+  overflow: hidden;
+}
+
+.btn_three .hamburger {
+  transition: translate 1s, rotate 1s;
+}
+
+.btn_three[aria-expanded="true"] .hamburger {
+  translate: 10px -10px;
+  rotate: 0.125turn;
+}
+
+.btn_three .line {
+  transition: 1s;
+  stroke-dasharray: 60 31 60 300;
+}
+
+.btn_three[aria-expanded="true"] .line {
+  stroke-dasharray: 60 105 60 300;
+  stroke-dashoffset: -90;
+}
