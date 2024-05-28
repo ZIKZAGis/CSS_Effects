@@ -21,12 +21,12 @@ const HamburgerButton = () => {
             title="hamburger button" 
             bg_color="#dbd8cc" 
             tx_color="#000" 
-            link="#"
+            link="https://github.com/ZIKZAGis/CSS_Effects/tree/main/src/components/effects/hamburger_btn"
             link_color='#000'
         >
             <div className={styles.wrapper}>
                 <button className={`${styles.btn_one} ${styles.btn}`} aria-controls='primary-navigation' aria-expanded='false' onClick={(e) => buttonHandler(e)}>
-                    <svg fill='#333' className={styles.hamburger} viewBox='0 0 100 100' width={250}>
+                    <svg fill='#333' className={styles.hamburger} viewBox='0 0 100 100' width={100}>
                         <rect className={`${styles.line} ${styles.top}`} width={80} height={10} x={10} y={25} rx={5}/>
                         <rect className={`${styles.line} ${styles.middle}`} width={80} height={10} x={10} y={45} rx={5}/>
                         <rect className={`${styles.line} ${styles.bottom}`} width={80} height={10} x={10} y={65} rx={5}/>
@@ -34,7 +34,7 @@ const HamburgerButton = () => {
                 </button>
 
                 <button className={`${styles.btn_two} ${styles.btn}`} aria-expanded="false" onClick={(e) => buttonHandler(e)}>
-                    <svg stroke='#333' className={styles.hamburger} viewBox='0 0 100 100' width={250}>
+                    <svg stroke='#333' className={styles.hamburger} viewBox='0 0 100 100' width={100}>
                         <line 
                             className={`${styles.line} ${styles.top}`} 
                             x1='90' x2='10' 
@@ -57,7 +57,7 @@ const HamburgerButton = () => {
                 </button>
 
                 <button className={`${styles.btn_three} ${styles.btn}`}aria-controls="primary-navigation" aria-expanded="false" onClick={(e) => buttonHandler(e)}>
-                    <svg stroke='#333' fill='none' className={styles.hamburger} viewBox='-10 -10 120 120' width={250}>
+                    <svg stroke='#333' fill='none' className={styles.hamburger} viewBox='-10 -10 120 120' width={100}>
                         <path 
                             className={styles.line} 
                             strokeWidth="10" 
