@@ -20,7 +20,7 @@ const HamburgerButton = () => {
         <Effect 
             title="hamburger button" 
             bg_color="#dbd8cc" 
-            tx_color="#000" 
+            tx_color="#333" 
             link="https://github.com/ZIKZAGis/CSS_Effects/tree/main/src/components/effects/hamburger_btn"
             link_color='#000'
         >
